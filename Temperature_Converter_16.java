@@ -17,9 +17,22 @@ public class Temperature_Converter_16 {
         System.out.print("convert celsius  to fahrenheit (C / F):  ");
         unit = scanner.next().toUpperCase();
 
-        newtemp = (unit == "C") ? (temp - 32) * 5 / 9 : (temp * 5/ 9) + 32;
-        System.out.printf("%.1f°%s",newtemp, unit);
+        // Conditional check
+        if (unit.equals("C") || unit.equals("F")) {
+
+            // Ternary operator for conversion
+            newtemp = unit.equals("C")
+                    ? (temp - 32) * 5 / 9
+                    : (temp * 9 / 5) + 32;
+
+            System.out.printf("Converted Temperature: %.1f°%s", newtemp, unit);
+
+        }
+        else {
+            System.out.println("Invalid choice! Please enter only C or F.");
+        }
 
         scanner.close();
     }
 }
+
